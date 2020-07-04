@@ -30,10 +30,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+"
+    "url": "git+https://github.com/xianengqi/whfang-spider.git"
   },
   "author": "XiaNengQi",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xianengqi/whfang-spider.git"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@antv/data-set": "^0.11.4",
@@ -137,5 +140,34 @@
     "url-loader": "^4.1.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.(test|spec).ts?(x)"
+    ],
+    "setupFiles": [
+      "./__tests__/setupTests.ts",
+      "jest-canvas-mock"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": ".node_modules/babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx",
+      "json"
+    ],
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "src/client/components/**/*.{ts,tsx}"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|less|sass|scss)$": "identity-obj-proxy"
+    }
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "singleQuote": true
   }
 }
