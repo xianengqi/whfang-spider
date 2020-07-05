@@ -150,7 +150,7 @@
       "jest-canvas-mock"
     ],
     "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": ".node_modules/babel-jest"
+      "^.+\\.(js|jsx|ts|tsx)$": "./node_modules/babel-jest"
     },
     "moduleFileExtensions": [
       "js",
