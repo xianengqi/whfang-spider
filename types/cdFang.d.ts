@@ -1,5 +1,4 @@
 declare namespace cdFang {
-
   interface IhouseData {
     _id: string;
     _v?: number;

@@ -1,7 +1,7 @@
 import log4js from 'log4js';
-import DbHelper from '../utils/dbHelper';
 import { add } from 'lodash';
 import { resolve } from 'path';
+import DbHelper from '../utils/dbHelper';
 
 const mongoose = DbHelper.connect();
 const logger = log4js.getLogger('globallog');
