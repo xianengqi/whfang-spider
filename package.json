@@ -17,7 +17,6 @@
     "prettier": "prettier --write --check ./**/*.{ts,tsx,less}",
     "coverage": "codecov",
     "commit": "npx git-cz"
-
   },
   "husky": {
     "hooks": {

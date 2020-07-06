@@ -15,7 +15,7 @@ const devConfig = {
     inline: true,
     // 代理服务器端域名
     proxy: {
-      '/': 'http://localhost:8077'
+      '/': 'http://localhost:8082'
     }
   },
   module: {

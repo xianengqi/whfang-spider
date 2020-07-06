@@ -3,13 +3,11 @@
   "compilerOptions": {
     // 配置编译目标代码的版本标准
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": "*",
-    "paths": { "*": ["types/*"] },
+    "paths": {
+      "*": ["types/*"]
+    },
     "allowJs": true,
     "esModuleInterop": true, //设置es模块化导出commonjs模块化代码
     "allowSyntheticDefaultImports": true,
@@ -21,7 +19,7 @@
     "jsx": "react"
   },
   // 影响 webpack 构建
-  "include": ["./src", "./build", "./types", "./__tests__"],
+  "include": ["./src", "**/build/**/*.js", "./types", "./__tests__", "**/docker/*.js", "./.eslintrc.js"],
   // "include": ["./src/*"],
   "exclude": ["./node_modules", "./__mocks__"]
 }
