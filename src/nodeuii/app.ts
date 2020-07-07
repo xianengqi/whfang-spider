@@ -1,4 +1,4 @@
-import Koa from 'Koa';
+import Koa from 'koa';
 import serve from 'koa-static';
 import log4js from 'log4js';
 import koaBody from 'koa-body';
