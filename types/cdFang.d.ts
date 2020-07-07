@@ -1,7 +1,7 @@
 declare namespace cdFang {
   interface IhouseData {
     _id: string;
-    _v?: number;
+    __v?: number;
     area: string;
     beginTime: string;
     endTime: string;
