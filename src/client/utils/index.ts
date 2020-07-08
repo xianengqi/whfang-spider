@@ -149,5 +149,11 @@ const util = {
       houseNumber,
       buildNumber
     }
-  }
+  },
+  getCurrentQuarter,
+  getRandomId,
+  getBasicColumnGraphData,
+  getYearList
 }
+
+export default util;
