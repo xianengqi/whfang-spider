@@ -78,6 +78,7 @@ function getRandomId(): string {
 }
 
 // 获取基础柱状图数据
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function getBasicColumnGraphData(allData: cdFang.IhouseData[]) {
   const areasGroup = _.groupBy(allData, (item: cdFang.IhouseData) => item.area);
   const chartHouseData: cdFang.IareaHouse[] = [];
@@ -108,7 +109,17 @@ function getYearList(): number[] {
 }
 
 const util = {
+  // 获取所有信息
   getAllInfo(allData: cdFang.IhouseData[]): IhouseInfo {
+    const houseNumber = _.sumBy(allData, 'number');
+    const buildNumber = allData.length;
+    return {
+      houseNumber,
+      buildNumber
+    };
+  },
+  // 获取本周信息
+  getThisWeekInfo(allData: cdFang.IhouseData[]): IhouseInfo {
     const thisWeekStart = dayjs().set('day', 0);
     const thisWeekEnd = dayjs().set('day', 7);
     const weekData = _.filter(
@@ -133,6 +144,57 @@ const util = {
       increaseBuildNumberString: getIncreaseNumber(increaseBuildNumber)
     };
   },
+  // 获取本月信息
+  getThisMonthInfo(allData: cdFang.IhouseData[]): IhouseInfo {
+    const thisMonthStart = dayjs().startOf('month');
+    const thisMonthEnd = dayjs().endOf('month');
+    const weekData = _.filter(
+      allData,
+      (item: cdFang.IhouseData): boolean => {
+        const beginTime = dayjs(item.beginTime);
+        return beginTime > thisMonthStart && beginTime < thisMonthEnd;
+      }
+    );
+    const houseNumber = _.sumBy(weekData, 'number');
+    const buildNumber = weekData.length;
+    const lastMonthInfo = this.getLastMonthInfo(allData);
+    const increaseHouseNumber = houseNumber - lastMonthInfo.houseNumber;
+    const increaseBuildNumber = buildNumber - lastMonthInfo.buildNumber;
+    return {
+      houseNumber,
+      buildNumber,
+      increaseHouseNumber,
+      increaseBuildNumber,
+      increaseHouseNumberString: getIncreaseNumber(increaseHouseNumber),
+      increaseBuildNumberString: getIncreaseNumber(increaseBuildNumber)
+    };
+  },
+  // 获取本季度信息
+  getThisQuarterInfo(allData: cdFang.IhouseData[]): IhouseInfo {
+    const time = getCurrentQuarter();
+    const { thisQuarterStart, thisQuarterEnd } = time;
+    const quarterData = _.filter(
+      allData,
+      (item: cdFang.IhouseData): boolean => {
+        const beginTime = dayjs(item.beginTime);
+        return beginTime > thisQuarterStart && beginTime < thisQuarterEnd;
+      }
+    );
+    const houseNumber = _.sumBy(quarterData, 'number');
+    const buildNumber = quarterData.length;
+    const lastQuarterInfo = this.getLastQuarterInfo(allData);
+    const increaseHouseNumber = houseNumber - lastQuarterInfo.houseNumber;
+    const increaseBuildNumber = buildNumber - lastQuarterInfo.buildNumber;
+    return {
+      houseNumber,
+      buildNumber,
+      increaseHouseNumber,
+      increaseBuildNumber,
+      increaseHouseNumberString: getIncreaseNumber(increaseHouseNumber),
+      increaseBuildNumberString: getIncreaseNumber(increaseBuildNumber)
+    };
+  },
+  // 获取上周的信息
   getLastWeekInfo(allData: cdFang.IhouseData[]): IhouseInfo {
     const thisWeekStart = dayjs().set('day', 0).add(-7, 'day');
     const thisWeekEnd = dayjs().set('day', 7).add(-7, 'day');
@@ -149,6 +211,56 @@ const util = {
       houseNumber,
       buildNumber
     }
+  },
+  // 获取上月的信息
+  getLastMonthInfo(allData: cdFang.IhouseData[]): IhouseInfo {
+    const thisMonthStart = dayjs()
+      .add(-1, 'month')
+      .startOf('month');
+    const thisMonthEnd = dayjs()
+      .add(-1, 'month')
+      .endOf('month');
+    const weekData = _.filter(
+      allData,
+      (item: cdFang.IhouseData): boolean => {
+        const beginTime = dayjs(item.beginTime);
+        return beginTime > thisMonthStart && beginTime < thisMonthEnd;
+      }
+    );
+    const houseNumber = _.sumBy(weekData, 'number');
+    const buildNumber = weekData.length;
+    return {
+      houseNumber,
+      buildNumber
+    };
+  },
+  // 获取上个季度信息
+  getLastQuarterInfo(allData: cdFang.IhouseData[]): IhouseInfo {
+    const time = getCurrentQuarter(dayjs().add(-3, 'month'));
+    const { thisQuarterStart, thisQuarterEnd } = time;
+    const quarterData = _.filter(
+      allData,
+      (item: cdFang.IhouseData): boolean => {
+        const beginTime = dayjs(item.beginTime);
+        return beginTime > thisQuarterStart && beginTime < thisQuarterEnd;
+      }
+    );
+    const houseNumber = _.sumBy(quarterData, 'Number');
+    const buildNumber = quarterData.length;
+    return {
+      houseNumber,
+      buildNumber
+    };
+  },
+  // 分类区
+  sortArea(areaArray: string[]): string[] {
+    // 把主城区排在前面
+    const mainArea =
+      '天府新区,高新南区,龙泉驿区,金牛区,成华区,武侯区,青羊区,锦江区';
+    const newArray = _.sortBy(areaArray, [
+      (area: string) => -mainArea.indexOf(area)
+    ]);
+    return newArray;
   },
   getCurrentQuarter,
   getRandomId,

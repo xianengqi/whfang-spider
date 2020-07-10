@@ -4,7 +4,7 @@
     // 配置编译目标代码的版本标准
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "baseUrl": "*",
+    // "baseUrl": "*",
     "paths": {
       "*": ["types/*"]
     },
@@ -19,7 +19,7 @@
     "jsx": "react"
   },
   // 影响 webpack 构建
-  "include": ["./src", "**/build/**/*.js", "./types", "./__tests__", "**/docker/*.js", "./.eslintrc.js"],
+  "include": ["./src", "./build", "./types", "./__tests__", "**/docker/*.js"],
   // "include": ["./src/*"],
   "exclude": ["./node_modules", "./__mocks__"]
 }
