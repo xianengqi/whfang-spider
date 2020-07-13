@@ -7,9 +7,9 @@ const AppProvider = ({ children }: React.Props<{ value: IappContext }>) => {
     changeAppState((prevState) => {
       return {
         ...prevState,
-        allData: data
-      }
-    })
+        allData: data,
+      };
+    });
   };
 
   const changeActivityKey = (key: string) => {
@@ -35,9 +35,9 @@ const AppProvider = ({ children }: React.Props<{ value: IappContext }>) => {
       return {
         ...prevState,
         isLoading,
-      }
-    })
-  }
+      };
+    });
+  };
 
   const initAppState: IappContext = {
     allData: [],
@@ -47,11 +47,11 @@ const AppProvider = ({ children }: React.Props<{ value: IappContext }>) => {
     changeData,
     changeActivityKey,
     changeSelectedYear,
-    changeLoading
+    changeLoading,
   };
   const [appState, changeAppState] = useState(initAppState);
 
-  return <AppContext.Provider value={appState}>{children}</AppContext.Provider>
-}
+  return <AppContext.Provider value={appState}>{children}</AppContext.Provider>;
+};
 
 export default AppProvider;
