@@ -1,4 +1,4 @@
-import React, {FC, useContext} from 'react';
+import React, { FC, useContext } from 'react';
 import { Collapse, List, Col, Row } from 'antd';
 import { NotificationOutlined } from '@ant-design/icons';
 import { HOUSE_PURCHASE_REGISTARTION } from '../../constants';
@@ -24,9 +24,7 @@ const CurrentHouse: FC = () => {
           <Col span={8}>
             <LinkToMap name={item.name} />
           </Col>
-          <Col span={3}>
-            {`${item.number}套`}
-          </Col>
+          <Col span={3}>{`${item.number}套`}</Col>
           <Col span={9}>
             {`登记截止时间：${item.endTime} `}
             <a
@@ -58,7 +56,7 @@ const CurrentHouse: FC = () => {
       </Collapse>
     ) : (
       <span />
-    )
+    );
   return result;
 };
 

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 // 拒绝渲染属性为空的数组
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
 interface Iprops {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

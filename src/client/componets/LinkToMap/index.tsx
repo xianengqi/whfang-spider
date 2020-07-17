@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
 interface Iprops {
   name: string;
@@ -15,9 +15,9 @@ const LinkToMap: FC<Iprops> = ({
       target="_blank"
       rel="nofollow me noopener noreferrer"
     >
-      { name }
+      {name}
     </a>
-  )
-}
+  );
+};
 
 export default LinkToMap;
