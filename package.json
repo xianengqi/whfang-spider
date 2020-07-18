@@ -1,6 +1,6 @@
 {
   "name": "whfang-spider",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "武汉房协爬虫，定时爬取最新房源，可视化数据分析。",
   "main": "index.js",
   "scripts": {
@@ -18,13 +18,20 @@
     "coverage": "codecov",
     "commit": "npx git-cz",
     "test:e2e": "cd ./__tests__/e2e;check_file=`ls  | grep '.spec.ts' |  tr -s '\n'`;jest --findRelatedTests $check_file",
-    "test": "cross-env NODE_ENV=test jest --no-cache --colors --coverage --forceExit --detectOpenHandles"
+    "test": "cross-env NODE_ENV=test jest --no-cache --colors --coverage --forceExit --detectOpenHandles",
+    "release": "standard-version"
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run prettier",
       "pre-push": "eslint --fix --ext tsx,ts src __tests__"
     }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "repository": {
     "type": "git",
@@ -83,6 +90,8 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@babel/register": "^7.10.4",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@hot-loader/react-dom": "^16.13.0",
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.3",
@@ -131,6 +140,7 @@
     "postcss-loader": "^3.0.0",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
+    "standard-version": "^8.0.2",
     "style-loader": "^1.2.1",
     "supervisor": "^0.12.0",
     "typescript": "^3.9.6",
