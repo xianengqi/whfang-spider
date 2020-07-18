@@ -1,7 +1,11 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, RenderResult } from '@testing-library/react';
-import { AppContext, globalData, IappContext } from '../../src/client/context/appContext';
+import {
+  AppContext,
+  globalData,
+  IappContext,
+} from '../../src/client/context/appContext';
 import CurrentHouse from '../../src/client/componets/CurrentHouse';
 
 const appState: IappContext = {
@@ -39,4 +43,3 @@ describe('CurrentHouse 组件', () => {
     ).toBeInTheDocument();
   });
 });
-
