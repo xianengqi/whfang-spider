@@ -7,7 +7,7 @@
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
   <a href="https://github.com/xianengqi/whfang-spider/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+    <img alt="Build" src="https://travis-ci.com/xianengqi/whfang-spider.svg?branch=master" />
   </a>
   <a href="https://github.com/xianengqi/whfang-spider/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/xianengqi/whfang-spider" />
