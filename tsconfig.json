@@ -8,6 +8,7 @@
     "paths": {
       "*": ["types/*"]
     },
+    "sourceMap": true,
     "allowJs": true,
     "esModuleInterop": true, //设置es模块化导出commonjs模块化代码
     "allowSyntheticDefaultImports": true,
