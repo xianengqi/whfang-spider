@@ -20,5 +20,5 @@ describe('StatisticCard 组件', () => {
   });
   it('是否渲染成功 ?', () => {
     expect(wrapper.container.querySelectorAll('.ant-card').length).toBe(4);
-  })
-})
+  });
+});
