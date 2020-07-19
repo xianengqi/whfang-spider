@@ -21,6 +21,9 @@
       "json"
     ],
     "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/client/components/**/*.{ts,tsx}"
+    ],
     "notify": true,
     "notifyMode": "always",
     "moduleNameMapper": {

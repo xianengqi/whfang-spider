@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import Loading from './componets/Loading';
+import Loading from './components/Loading';
 import AppContextProvider from './context/appContextProvider';
 import { LOADING_TIP } from './constants';
 import Routes from './router';

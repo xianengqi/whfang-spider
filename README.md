@@ -3,9 +3,12 @@
 ![](https://s1.ax1x.com/2020/07/19/U2gQj1.png)
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.1.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/xianengqi/whfang-spider#readme" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
+
+  <!-- [![codecov](https://codecov.io/gh/xianengqi/whfang-spider/branch/master/graph/badge.svg)](https://codecov.io/gh/xianengqi/whfang-spider) -->
+
+ <a href="https://codecov.io/gh/xianengqi/whfang-spider">
+  <img src="https://codecov.io/gh/xianengqi/whfang-spider/branch/master/graph/badge.svg" />
+</a>
   <a href="https://github.com/xianengqi/whfang-spider/graphs/commit-activity" target="_blank">
     <img alt="Build" src="https://travis-ci.com/xianengqi/whfang-spider.svg?branch=master" />
   </a>
@@ -16,17 +19,7 @@
 
 > 武汉房协爬虫，定时爬取最新房源，可视化数据分析。
 
-## Install
 
-```sh
-npm install
-```
-
-## Run tests
-
-```sh
-npm run test
-```
 
 ## Author
 

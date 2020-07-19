@@ -6,7 +6,7 @@ import {
   globalData,
   IappContext,
 } from '../../src/client/context/appContext';
-import CurrentHouse from '../../src/client/componets/CurrentHouse';
+import CurrentHouse from '../../src/client/components/CurrentHouse';
 
 const appState: IappContext = {
   ...globalData,

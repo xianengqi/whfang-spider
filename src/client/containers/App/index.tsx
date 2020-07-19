@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Layout, BackTop } from 'antd';
 import { hot } from 'react-hot-loader/root';
-import Header from '../../componets/Header';
+import Header from '../../components/Header';
 
 import { COPYRIGHT, BEIAN_ICP } from '../../constants';
 
