@@ -23,5 +23,6 @@ install:
 script:
   - npm run build
   - npm run test
+  - codecov -f coverage/*.json
 
 after_success: npm run coverage
