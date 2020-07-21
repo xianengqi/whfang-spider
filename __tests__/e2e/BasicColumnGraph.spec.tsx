@@ -1,7 +1,9 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, RenderResult } from '@testing-library/react';
-import BasicColumnGraph, { Iprops } from '../../src/client/components/BasicColumnGraph';
+import BasicColumnGraph, {
+  Iprops,
+} from '../../src/client/components/BasicColumnGraph';
 
 const props: Iprops = {
   title: '房源数排序图',
