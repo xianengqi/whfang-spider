@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import { Chart, Geom, Axis, Tooltip } from 'bizcharts';
 import RenderNoEmptyComponent from '../HOC/RenderNoEmptyComponent';
 import { RenderLoadingComponent } from '../HOC/RenderLoadingComponent';
@@ -19,16 +19,10 @@ export interface Iprops {
   desc?: boolean;
 }
 
-const BasicColumnGraph: FC<Iprops> = ({
-  data,
-  title,
-  xAxis,
-  yAxis,
-  desc,
-}) => {
+const BasicColumnGraph: FC<Iprops> = ({ data, title, xAxis, yAxis, desc }) => {
   let chartData: Iarea[] = [];
   if (desc) {
-    chartData = data.sort((a, b): any => b[yAxis] - a[yAxis])
+    chartData = data.sort((a, b): any => b[yAxis] - a[yAxis]);
   }
   return (
     <Chart height={400} data={chartData} forceFit>
@@ -44,6 +38,6 @@ const BasicColumnGraph: FC<Iprops> = ({
 const BasicColumnGraphUseMemo = React.memo<Iprops>(
   RenderNoEmptyComponent(RenderLoadingComponent(BasicColumnGraph), ['data']),
   (): boolean => false
-)
+);
 
 export default BasicColumnGraphUseMemo;
