@@ -8,10 +8,6 @@ os:
   - linux
   - osx
 
-cache:				# 缓存 node_js 依赖，提升第二次构建的效率
-  directories:
-  - node_modules
-
 env:
   - BUILD_ENV=ci
 
