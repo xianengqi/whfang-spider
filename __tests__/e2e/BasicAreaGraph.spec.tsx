@@ -1,7 +1,9 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, RenderResult } from '@testing-library/react';
-import BasicAreaGraph, { Iprops } from '../../src/client/components/BasicAreaGraph';
+import BasicAreaGraph, {
+  Iprops,
+} from '../../src/client/components/BasicAreaGraph';
 
 const props: Iprops = {
   title: '房源数',
