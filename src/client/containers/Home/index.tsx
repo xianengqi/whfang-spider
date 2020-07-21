@@ -7,6 +7,7 @@ import { Layout, Col, Row, Tabs } from 'antd';
 import utils from '../../utils';
 import StatisticCard from '../../components/StatisticCard';
 import BasicAreaGraph from '../../components/BasicAreaGraph';
+import BasicColumnGraph from '../../components/BasicColumnGraph';
 import Rank from '../../components/Rank';
 
 import { AppContext } from '../../context/appContext';
@@ -29,7 +30,6 @@ interface ImonthBuilder {
 }
 
 const Home: React.FC<RouteComponentProps> = () => {
-
   const { allData } = useContext(AppContext);
 
   // 构建区域图需要的数据
@@ -53,22 +53,22 @@ const Home: React.FC<RouteComponentProps> = () => {
       });
     });
 
-    // 构建排行数据
-    const builderRankData = builderData.map((item) => ({
-      _id: utils.getRandomId(),
-      name: item.month,
-      number: item[constants.BUILDER_NUMBER],
-    }));
-    const houseRankData = houseData.map((item) => ({
-      _id: utils.getRandomId(),
-      name: item.month,
-      number: item[constants.HOUSE_NUMBER],
-    }));
+  // 构建排行数据
+  const builderRankData = builderData.map((item) => ({
+    _id: utils.getRandomId(),
+    name: item.month,
+    number: item[constants.BUILDER_NUMBER],
+  }));
+  const houseRankData = houseData.map((item) => ({
+    _id: utils.getRandomId(),
+    name: item.month,
+    number: item[constants.HOUSE_NUMBER],
+  }));
 
-    // 柱状图数据
-    const { chartHouseData, chartBuilderData } = utils.getBasicColumnGraphData(
-      allData
-    );
+  // 柱状图数据
+  const { chartHouseData, chartBuilderData } = utils.getBasicColumnGraphData(
+    allData
+  );
 
   return (
     <Content className="content">
@@ -92,6 +92,33 @@ const Home: React.FC<RouteComponentProps> = () => {
                 <Rank data={houseRankData} title="月份" unit="套" />
               </Col>
             </Row>
+            <BasicColumnGraph
+              title="房源 / 区域(统计图)"
+              data={chartHouseData}
+              xAxis={constants.AREA}
+              yAxis={constants.HOUSE_NUMBER}
+              desc
+            />
+          </TabPane>
+          <TabPane tab={constants.BUILDER_NUMBER} key="2">
+            <Row>
+              <Col span={18}>
+                <BasicAreaGraph
+                  data={builderData}
+                  title={constants.BUILDER_NUMBER}
+                />
+              </Col>
+              <Col span={6}>
+                <Rank data={builderRankData} title="月份" unit="个" />
+              </Col>
+            </Row>
+            <BasicColumnGraph
+              title="楼盘数 / 区域(统计图)"
+              data={chartBuilderData}
+              xAxis={constants.AREA}
+              yAxis={constants.BUILDER_NUMBER}
+              desc
+            />
           </TabPane>
         </Tabs>
       </div>

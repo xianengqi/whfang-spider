@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import _ from 'lodash';
 import './styles.less';
 import { RenderLoadingComponent } from '../HOC/RenderLoadingComponent';
@@ -19,12 +19,7 @@ export interface Iprops {
   isLink?: boolean;
 }
 
-const Rank: FC<Iprops> = ({
-  data,
-  title,
-  unit,
-  isLink
-}) => {
+const Rank: FC<Iprops> = ({ data, title, unit, isLink }) => {
   const rankData = _.sortBy(data, (item: Irank) => -item.number);
   const rankTitle = title ? `排名：${title}` : '排名';
 
@@ -32,22 +27,20 @@ const Rank: FC<Iprops> = ({
     <div className="rank">
       <div className="rank-title">{rankTitle}</div>
       <ul className="rank-list">
-        {
-          rankData.map((item: Irank, index: number) => {
-            const istop3 = index < 3 ? 'top3': '';
-            return (
-              // eslint-disable-next-line no-underscore-dangle
-              <li key={item._id}>
-                <span className={istop3}>{index + 1}</span>
-                <span>{isLink ? <LinkToMap name={item.name} /> : item.name}</span>
-                <span>{item.number + unit}</span>
-              </li>
-            );
-          })
-        }
+        {rankData.map((item: Irank, index: number) => {
+          const istop3 = index < 3 ? 'top3' : '';
+          return (
+            // eslint-disable-next-line no-underscore-dangle
+            <li key={item._id}>
+              <span className={istop3}>{index + 1}</span>
+              <span>{isLink ? <LinkToMap name={item.name} /> : item.name}</span>
+              <span>{item.number + unit}</span>
+            </li>
+          );
+        })}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default RenderLoadingComponent(Rank);

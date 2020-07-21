@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
 import DataSet from '@antv/data-set';
 import * as constants from '../../constants';
@@ -35,17 +35,14 @@ const BasicAreaGraph: FC<Iprops> = ({ data, title }) => {
   };
   return (
     <Chart height={400} data={dv} scale={scale} forceFit>
-      <div className="chart-title">
-        {`${title} / 月(统计图)`}
-      </div>
+      <div className="chart-title">{`${title} / 月(统计图)`}</div>
       <Tooltip />
       <Axis />
       <Legend />
       <Geom type="area" position="month*value" color="type" shape="smooth" />
       <Geom type="line" position="month*value" color="type" shape="smooth" />
     </Chart>
-  )
-}
-
+  );
+};
 
 export default RenderLoadingComponent(BasicAreaGraph);
