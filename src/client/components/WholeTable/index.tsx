@@ -1,4 +1,4 @@
-import React, {useContext, FC} from 'react';
+import React, { useContext, FC } from 'react';
 import _ from 'lodash';
 import { Table } from 'antd';
 import { AppContext } from '../../context/appContext';
@@ -11,7 +11,7 @@ const CommonTable: FC = () => {
   const areasList = Object.keys(areas);
   const nameFilter = areasList.map((item) => ({
     text: item,
-    value: item
+    value: item,
   }));
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,7 +29,7 @@ const CommonTable: FC = () => {
       title: '项目名称',
       dataIndex: 'name',
       key: 'name',
-      render: (name: string) => <LinkTopMap name={name} />
+      render: (name: string) => <LinkTopMap name={name} />,
     },
     {
       title: '住房套数',
@@ -60,7 +60,7 @@ const CommonTable: FC = () => {
         },
         {
           text: '报名结束',
-          value: '报名结束'
+          value: '报名结束',
         },
       ],
       filterMultiple: true,
@@ -69,7 +69,7 @@ const CommonTable: FC = () => {
       },
       render: (text: string) => {
         if (text !== '报名结束') {
-          return <span style={{ color: 'green' }}>{text}</span>
+          return <span style={{ color: 'green' }}>{text}</span>;
         }
         return text;
       },
@@ -88,7 +88,7 @@ const CommonTable: FC = () => {
         filterTitle: '率选',
         filterConfirm: '确定',
         filterReset: '重置',
-        emptyText: '暂无数据'
+        emptyText: '暂无数据',
       }}
     />
   );
