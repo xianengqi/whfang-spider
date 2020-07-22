@@ -9,6 +9,7 @@ import StatisticCard from '../../components/StatisticCard';
 import BasicAreaGraph from '../../components/BasicAreaGraph';
 import BasicColumnGraph from '../../components/BasicColumnGraph';
 import Rank from '../../components/Rank';
+import WholeTable from '../../components/WholeTable';
 
 import { AppContext } from '../../context/appContext';
 import * as constants from '../../constants';
@@ -121,6 +122,9 @@ const Home: React.FC<RouteComponentProps> = () => {
             />
           </TabPane>
         </Tabs>
+      </div>
+      <div className="content-section">
+        <WholeTable />
       </div>
     </Content>
   );

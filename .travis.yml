@@ -25,8 +25,8 @@ script:
   - npm run test
   # - codecov -f coverage/*.json
 
-test:
-  - npm run test # 运行自动测试框架
+# test:
+#   - npm run test # 运行自动测试框架
 
 after_success:
   - npm run coverage
